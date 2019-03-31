@@ -8,7 +8,11 @@ class PersonAdresseTest {
 
 	@Test
 	void vornamenTest() {
-		Person p1 = new Person("Arthur", "Dent", null);
+		try {
+			Person p1 = new Person("Arthur", "Dent", null);
+		} catch (Exception e) {
+			fail();
+		}
 		
 		try {
 			Person p2 = new Person("arthur", "Dent", null);

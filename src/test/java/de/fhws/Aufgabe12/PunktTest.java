@@ -8,8 +8,12 @@ class PunktTest {
 
 	@Test
 	void test() {
-		Punkt p2 = new Punkt();
-		p2.verschiebePunkt(1920, 1080);
+		try {
+			Punkt p2 = new Punkt();
+			p2.verschiebePunkt(1920, 1080);
+		} catch (Exception e) {
+			fail();
+		}
 		
 		try {
 			Punkt p1 = new Punkt();

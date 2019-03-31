@@ -11,6 +11,11 @@ class BruchTest {
 	@Test
 	void test() {
 		try {
+			Bruch bruch = new Bruch(1,4);
+		} catch (Exception e) {
+			fail();
+		}
+		try {
 			Bruch test = new Bruch(1, 0);
 			fail();
 		} catch (ArithmeticException e) {
