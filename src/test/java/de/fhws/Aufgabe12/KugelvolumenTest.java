@@ -10,9 +10,9 @@ class KugelvolumenTest {
 
 	@Test
 	void kugelvolumenTest() {
-		assertEquals(0, Kugelvolumen.berechneKugelvolumen(0), 0.01);
-		assertEquals(4.189, Kugelvolumen.berechneKugelvolumen(1), 0.01);
-		assertEquals(523.599, Kugelvolumen.berechneKugelvolumen(5), 0.01);
+		assertEquals(0, Kugelvolumen.berechneKugelvolumen(0), 0.001);
+		assertEquals(4.188, Kugelvolumen.berechneKugelvolumen(1), 0.001);
+		assertEquals(523.598, Kugelvolumen.berechneKugelvolumen(5), 0.001);
 		
 		try {
 			Kugelvolumen.berechneKugelvolumen(-1);
