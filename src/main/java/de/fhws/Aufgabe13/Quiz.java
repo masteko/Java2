@@ -25,5 +25,7 @@ public abstract class Quiz {
 			boolean right = deck[i].checkAnswer(scanner.nextLine());
 			System.out.println("\nDie Antwort war " + (right ? "richtig" : "falsch\n"));
 		}
+		
+		scanner.close();
 	}
 }
