@@ -23,7 +23,7 @@ public abstract class Quiz {
 		for (int i = 0; i < deck.length; i++) {
 			deck[i].askQuestion();
 			boolean right = deck[i].checkAnswer(scanner.nextLine());
-			System.out.println("\nDie Antwort war " + (right ? "richtig" : "falsch\n"));
+			System.out.println("\nDie Antwort war " + (right ? "richtig\n" : "falsch\n"));
 		}
 		
 		scanner.close();
