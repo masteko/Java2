@@ -1,12 +1,12 @@
 package de.fhws.Aufgabe14;
 
 public class Cyborg implements DriverInterface {
-	Human humanDriver;;
-	Robot robotDriver;
+	HumanDriver humanDriver;;
+	RobotDriver robotDriver;
 
 	public Cyborg() {
-		humanDriver = new Human();
-		robotDriver = new Robot();
+		humanDriver = new HumanDriver();
+		robotDriver = new RobotDriver();
 	}
 
 	@Override

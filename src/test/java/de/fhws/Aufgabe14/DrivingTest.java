@@ -5,31 +5,31 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class DrivingTest {
-	Robot r;
+	RobotDriver r;
 
 	@Test
 	void robotDecisionTest() {
-		Robot r = new Robot();
+		RobotDriver r = new RobotDriver();
 		
-		assertTrue(Decision.LEFT.equals(r.decite(Danger.DANGER_RIGHT)));
-		assertFalse(Decision.RIGHT.equals(r.decite(Danger.DANGER_RIGHT)));
-		assertFalse(Decision.BRAKE.equals(r.decite(Danger.DANGER_RIGHT)));
-		assertFalse(Decision.DRAW.equals(r.decite(Danger.DANGER_RIGHT)));
+		assertTrue(Decision.LEFT.equals(r.decite(Danger.RIGHT)));
+		assertFalse(Decision.RIGHT.equals(r.decite(Danger.RIGHT)));
+		assertFalse(Decision.BRAKE.equals(r.decite(Danger.RIGHT)));
+		assertFalse(Decision.DRAW.equals(r.decite(Danger.RIGHT)));
 		
-		assertTrue(Decision.RIGHT.equals(r.decite(Danger.DANGER_LEFT)));
-		assertFalse(Decision.LEFT.equals(r.decite(Danger.DANGER_LEFT)));
-		assertFalse(Decision.BRAKE.equals(r.decite(Danger.DANGER_LEFT)));
-		assertFalse(Decision.DRAW.equals(r.decite(Danger.DANGER_LEFT)));
+		assertTrue(Decision.RIGHT.equals(r.decite(Danger.LEFT)));
+		assertFalse(Decision.LEFT.equals(r.decite(Danger.LEFT)));
+		assertFalse(Decision.BRAKE.equals(r.decite(Danger.LEFT)));
+		assertFalse(Decision.DRAW.equals(r.decite(Danger.LEFT)));
 
-		assertTrue(Decision.BRAKE.equals(r.decite(Danger.DANGER_FRONT)));
-		assertFalse(Decision.RIGHT.equals(r.decite(Danger.DANGER_FRONT)));
-		assertFalse(Decision.DRAW.equals(r.decite(Danger.DANGER_FRONT)));
-		assertFalse(Decision.LEFT.equals(r.decite(Danger.DANGER_FRONT)));
+		assertTrue(Decision.BRAKE.equals(r.decite(Danger.FRONT)));
+		assertFalse(Decision.RIGHT.equals(r.decite(Danger.FRONT)));
+		assertFalse(Decision.DRAW.equals(r.decite(Danger.FRONT)));
+		assertFalse(Decision.LEFT.equals(r.decite(Danger.FRONT)));
 	}
 	
 	@Test
 	void humanDecisionTest() {
-		float failurePercentage = getFailurePercentage(new Human());
+		float failurePercentage = getFailurePercentage(new HumanDriver());
 		assertEquals(25, failurePercentage, 0.1);
 	}
 	
@@ -59,7 +59,7 @@ class DrivingTest {
 	}
 	
 	Decision getByDanger(Danger danger) {
-		if (r == null) r = new Robot();
+		if (r == null) r = new RobotDriver();
 		return r.decite(danger);
 	}
 

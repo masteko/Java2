@@ -1,3 +1,4 @@
+package de.fhws.Aufgabe15;
 import java.awt.image.BufferedImageFilter;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
