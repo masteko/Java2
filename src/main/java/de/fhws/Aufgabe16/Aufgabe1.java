@@ -7,8 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Aufgabe1 {
-	public static void main(String[] args) throws MatrikelNummerException {
-		splitStudiengaenge("MatrNr.txt");
+	public static void main(String[] args) {
+		try {
+			splitStudiengaenge("MatrNr.txt");			
+		} catch (MatrikelNummerException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public static void splitStudiengaenge(String filename) throws MatrikelNummerException {
@@ -30,10 +34,10 @@ public class Aufgabe1 {
 					winf.write(line + "\n");
 				} else if(number >= 5100000 && number < 5200000) {
 					inf.write(line + "\n");
-				} else if (number >= 6100000 && number < 5200000){
+				} else if (number >= 6100000 && number < 6200000){
 					ec.write(line + "\n");
 				} else {
-					throw new MatrikelNummerException("Matrikelnummer falsch");
+					throw new MatrikelNummerException("Matrikelnummer falsch " + line);
 				}
 				
 			} while(line != null);
