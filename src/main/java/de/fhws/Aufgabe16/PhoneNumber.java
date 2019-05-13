@@ -35,6 +35,7 @@ public class PhoneNumber {
 		
 		if (c <= 'C') {
 			result = '2';
+	
 		} else if (c <= 'F') {
 			result = '3';
 		} else if (c <= 'I') {

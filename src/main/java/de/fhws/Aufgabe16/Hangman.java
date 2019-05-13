@@ -36,7 +36,7 @@ public class Hangman {
     	
     	this.tries++;
     	
-    	if (this.tries == this.maxTries) {
+    	if (this.tries == this.maxTries && String.valueOf(foundChars).contains("_")) {
     		throw new GameOverException();
     	}
     	

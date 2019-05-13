@@ -28,7 +28,9 @@ public class Server {
 			OutputStream os = connection.getOutputStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 		) {
+			System.out.println("Server running");;
 			sendMessage(h.toString(), os);
+
 			while(runServer) {
 				guess = receiveMessage(br);
 				try {

@@ -2,11 +2,14 @@ package stack;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("all") //unterdrueckt alle Warnings
-public class Stack extends ArrayList
+public class Stack<E> extends ArrayList
 {
- 
-	public void push(Object element) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1863628370692508347L;
+
+	public void push(E element) {
 		this.add(0, element);
 	}
 	
@@ -16,17 +19,12 @@ public class Stack extends ArrayList
 	
 	public static void main(String[] args) {
 		//man hat auch alle ArrayList methoden...
-		Stack stack = new Stack();
-		stack.push(1);
-		stack.push(2);
-		stack.push(3);
-		
-		System.out.println(stack.toString());
-		stack.forEach(s -> System.out.println(s));
-		System.out.println("");
+		Stack<String> stack = new Stack<>();
+		stack.push("Hallo");
+		stack.push("Welt");
 		
 		System.out.println(stack.pop());
-		System.out.println(stack.toString());
+		System.out.println(stack.pop());
 	}
 
 }
