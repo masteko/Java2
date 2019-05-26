@@ -3,9 +3,7 @@ package de.fhws.Aufgabe18;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Deck {
 	List<Card> cards = new ArrayList<>();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -12,18 +13,16 @@ public class Vokabeltrainer {
 	Map<String, ArrayList<String>> english2German = new HashMap<>();
 	String wordToGuess;
 
-	public void addToDictionary(String englishWord, String ...germanWords) {
-		ArrayList<String> list = new ArrayList<>();
-		list.addAll(Arrays.asList(germanWords));
-		english2German.put(englishWord, list);
+	public void addToDictionary(String englishWord, String... germanWords) {
+		english2German.put(englishWord, new ArrayList<>(Arrays.asList(germanWords)));
 	}
 
 	public void createRandomWordToGuess() {
 		Set<String> keySet = english2German.keySet();
-		int randomIndex = (int)(Math.random()*keySet.size());
+		int randomIndex = (int) (Math.random() * keySet.size());
 		Iterator<String> iterator = keySet.iterator();
 		int i = 0;
-		while(iterator.hasNext()) {
+		while (iterator.hasNext()) {
 			String word = iterator.next();
 			if (i == randomIndex) {
 				wordToGuess = word;
@@ -36,14 +35,14 @@ public class Vokabeltrainer {
 	public String getWordToGuess() {
 		return wordToGuess;
 	}
-	
+
 	public boolean guess(String guess) {
 		ArrayList<String> solutions = english2German.get(wordToGuess);
 		if (solutions.contains(guess))
-		return true;
+			return true;
 		return false;
 	}
-	
+
 	public static void main(String[] args) {
 		Vokabeltrainer guessingGame = new Vokabeltrainer();
 
