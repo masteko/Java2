@@ -33,7 +33,7 @@ class BaumTest {
 	
 	@Test
 	void noRootTest() {
-		assertTrue(b.root ==null);
+		assertTrue(b.root == null);
 	}
 	
 	@Test
