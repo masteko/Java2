@@ -9,6 +9,11 @@ import java.util.Iterator;
 public class Array<E> implements Iterable<E>{
 	Node<E> root;
 	
+	@Override
+	public Iterator<E> iterator() {
+		return new ListIterator<E>(this);
+	}
+	
 	public void add(E el) {
 		if (root == null) {
 			root = new Node<E>(el);
@@ -40,7 +45,28 @@ public class Array<E> implements Iterable<E>{
 		return result;
 	}
 	
-	private class Node<E> implements Iterator<E>{
+	private class ListIterator<E> implements Iterator<E> {
+		Array<E>.Node<E> current;
+		
+		private ListIterator(Array<E> arr) {
+			this.current = arr.root;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return current != null;
+		}
+
+		@Override
+		public E next() {
+			E data = current.element;
+			current = current.next;
+			return data;
+		}
+		
+	}
+	
+	private class Node<E> {
 		E element;
 		Node<E> next;
 		
@@ -57,28 +83,13 @@ public class Array<E> implements Iterable<E>{
 				next.add(element);
 			}
 		}
-
-		@Override
-		public boolean hasNext() {
-			return next != null;
-		}
-
-		@Override
-		public E next() {
-			return next.element;
-		}
-		
-		@Override
-		public String toString() {
-			return element + " " + (next != null ? next : "");
-		}
-
 	}
 	
 	public static void main(String[] args) {
 		Array<String> arr = new Array<>();
 		arr.add("Hallo");
 		arr.add("Ciao");
+		arr.add("Bye");
 		
 		//System.out.println(arr);
 		
@@ -86,10 +97,4 @@ public class Array<E> implements Iterable<E>{
 			System.out.println(s);
 		}
 	}
-
-	@Override
-	public Iterator<E> iterator() {
-		return new Node<>();
-	}
-
 }
