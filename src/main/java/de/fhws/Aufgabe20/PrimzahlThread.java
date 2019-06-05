@@ -30,7 +30,7 @@ public class PrimzahlThread extends Thread {
 		
 		System.out.println(t1);
 		System.out.println(t2);
-		System.out.println(t3);
+		System.out.println(t3); 
 	}
 
 	public PrimzahlThread(int[] zahlenZumTesten) {
