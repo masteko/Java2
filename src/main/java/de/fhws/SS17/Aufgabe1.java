@@ -10,6 +10,7 @@ import java.util.Arrays;
 import com.sun.tools.javac.util.List;
 
 public class Aufgabe1 {
+
 	public static boolean ibanCheck(String iban) throws FalscheIBANException {
 		if (iban.substring(0,2).equals("DE") && iban.substring(2).length() == 20)
 			return true;
