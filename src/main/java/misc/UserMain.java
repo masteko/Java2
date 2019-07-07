@@ -6,9 +6,9 @@ public class UserMain {
 	public static void main(String[] args) {
 		UserManager um = new UserManager();
 //		List<User> users = List.of(
-//			new User("Igor", "Wodka"),
-//			new User("njester", "5030"),
-//			new User("Becky", "Bourton")
+//			new User("User1", "PW1"),
+//			new User("User2", "PW2"),
+//			new User("User3", "PW3")
 //		);
 //		
 //		um.serialize(users);

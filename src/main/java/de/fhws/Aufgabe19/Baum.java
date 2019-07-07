@@ -9,10 +9,14 @@ public class Baum {
 	
 	public static void main(String[] args) {
 		Baum b = new Baum();
-		b.add("Cool");
-		b.add("Aaronson");
-		b.add("Zylla");
-		b.add("Garrett");
+		b.add("Hallo");
+		b.add("Anton");
+		b.add("Berta");
+		b.add("Gud");
+		b.add("Xaver");
+		b.add("Gustav");
+		b.add("Björn");
+		b.add("Salary");
 		b.print();
 	}
 	

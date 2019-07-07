@@ -33,16 +33,17 @@ public class UserManager {
 		User tmp;
 		
 		try(
-				FileInputStream fis = new FileInputStream(DATABASE);
-				ObjectInputStream ois = new ObjectInputStream(fis);) 
+			FileInputStream fis = new FileInputStream(DATABASE);
+			ObjectInputStream ois = new ObjectInputStream(fis);) 
 		{
-			tmp = (User) ois.readObject();
-			while(tmp != null) {
-				result.add(tmp);
-				tmp = (User) ois.readObject();
+			try {
+				while(true) {
+					tmp = (User) ois.readObject();
+					result.add(tmp);
+				}				
+			} catch (EOFException e) {
+				// no more users
 			}
-		} catch(EOFException e) {
-			
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		} catch(ClassNotFoundException e) {
