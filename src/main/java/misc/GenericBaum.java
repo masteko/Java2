@@ -77,7 +77,7 @@ public class GenericBaum<E extends Comparable<E>> {
 		return "";
 	}
 	
-	class Node implements Comparator<E>, Iterable<Node> {
+	class Node implements Iterable<Node> {
 		E content;
 		Node parent;
 		Node left;
@@ -86,12 +86,7 @@ public class GenericBaum<E extends Comparable<E>> {
 		private Node(E content) {
 			this.content = content;
 		}
-
-		@Override
-		public int compare(E o1, E o2) {
-			return o1.compareTo(o2);
-		}
-		
+	
 		@Override
 		public String toString() {
 			return content.toString();
