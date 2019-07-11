@@ -69,7 +69,7 @@ public class Test2  extends Test{
 			
 			OutputStreamWriter osw = new OutputStreamWriter(System.out);
 			BufferedWriter bw = new BufferedWriter(osw);
-			FileReaders
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
