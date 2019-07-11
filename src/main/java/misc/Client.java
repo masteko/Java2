@@ -34,7 +34,6 @@ public class Client {
 		){
 			Thread t1 = new Thread(new ClientThread(br));
 			t1.start();
-
 			while(listen) {
 				line = scanner.nextLine();
 				os.write(line.getBytes());

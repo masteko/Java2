@@ -3,6 +3,7 @@ package misc;
 import java.io.ObjectInputStream.GetField;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import org.glassfish.jersey.internal.guava.Maps;
@@ -22,22 +23,26 @@ public class MusikStueckSammlung {
 	
 	public MusikStueck[] getAlleMusikStueckeNachTitel() {
 		MusikStueck[] result = sammlung.values().toArray(MusikStueck[]::new);
-		Arrays.sort(result, new VergleicheMusikStueckTitel());
+//		return sammlung.values().stream().sorted(new VergleicheMusikStueckTitel()).toArray(MusikStueck[]::new);
+		Arrays.sort(result, Comparator.comparing(MusikStueck::getInterpret).thenComparing(MusikStueck::getTitel).thenComparingInt(MusikStueck::getLaenge));
 		return result;
 	}
 	
 	public MusikStueck[] getAlleMusikStueckeNachLaenge() {
-		MusikStueck[] result = sammlung.values().toArray(MusikStueck[]::new);
-		Arrays.sort(result, new VergleicheMusikStuckLaenge());
-		return result;
+		return sammlung.values().stream().sorted(new VergleicheMusikStuckLaenge()).toArray(MusikStueck[]::new);
 	}
 	
 	public static void main(String[] args) {
 		MusikStueckSammlung mss = new MusikStueckSammlung();
-		mss.musikStueckEinfuegen(new MusikStueck("Thriller", "Michael", 123));
-		mss.musikStueckEinfuegen(new MusikStueck("Highway to Hell", "ACDC", 321));
-		mss.musikStueckEinfuegen(new MusikStueck("Alabama", "XYZ", 113));
-		mss.musikStueckEinfuegen(new MusikStueck("Mischigan", "XYZ", 331));
+		try {
+			mss.musikStueckEinfuegen(new MusikStueck("Thriller", "Michael", 123));
+			mss.musikStueckEinfuegen(new MusikStueck("Highway to Hell", "ACDC", 321));
+			mss.musikStueckEinfuegen(new MusikStueck("Alabama", "XYZ", 113));
+			mss.musikStueckEinfuegen(new MusikStueck("Alabama", "s", 113));
+			mss.musikStueckEinfuegen(new MusikStueck("Mischigan", "XYZ", 331));			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		MusikStueck[] nachTitel = mss.getAlleMusikStueckeNachTitel();
 		
