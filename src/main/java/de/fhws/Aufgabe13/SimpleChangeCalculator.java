@@ -19,18 +19,39 @@ public class SimpleChangeCalculator
 	 * Der Aufrufer darf keine negativen Werte uebergeben.
 	 * Der Cent-Parameter darf keinen Wert > 99 annehmen.
      */
+//	public int[] getChange(int euros, int cent)
+//	{
+//		return new int[] {
+//			euros * 100 + cent, // alles in 1-Cent-Muenzen
+//			0,					// keine 2-Cent-Muenzen
+//			0,					// keine 5-Cent-Muenzen
+//			0,					// keine 10-Cent-Muenzen
+//			0,					// keine 20-Cent-Muenzen
+//			0,					// keine 50-Cent-Muenzen
+//			0,					// keine 1-Euro-Muenzen
+//			0					// keine 2-Euro-Muenzen
+//		};
+//	}
+	
 	public int[] getChange(int euros, int cent)
 	{
-		return new int[] {
-			euros * 100 + cent, // alles in 1-Cent-Muenzen
-			0,					// keine 2-Cent-Muenzen
-			0,					// keine 5-Cent-Muenzen
-			0,					// keine 10-Cent-Muenzen
-			0,					// keine 20-Cent-Muenzen
-			0,					// keine 50-Cent-Muenzen
-			0,					// keine 1-Euro-Muenzen
-			0					// keine 2-Euro-Muenzen
-		};
+		Coin[] coins = Coin.availableCoins;
+		int[] result = new int[coins.length];
+		int total = euros * 100 + cent;
+		
+		for (int i = coins.length -1; i >= 0; i--) {
+			while(total >= coins[i].getValue()) {
+				total -= coins[i].getValue();
+				result[i]++;
+			}
+		}
+		
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		SimpleChangeCalculator scc = new SimpleChangeCalculator();
+		scc.test();
 	}
 	
 	/**

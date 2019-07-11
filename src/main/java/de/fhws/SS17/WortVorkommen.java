@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class WortVorkommen {
-	Map<Wort, Collection<Position>> woerter;
+	Map<Wort, ArrayList<Position>> woerter;
 	
 	public WortVorkommen() {
 		this.woerter = new HashMap<>();
@@ -23,7 +23,7 @@ public class WortVorkommen {
 		}
 	}
 
-	public Collection<Position> holeAlle(Wort w) {
+	public ArrayList<Position> holeAlle(Wort w) {
 		return woerter.get(w);
 	}
 
@@ -38,13 +38,20 @@ public class WortVorkommen {
 	}
 
 	public void einfuegen(Wort w, Position position) {
-		Collection<Position> positionen = woerter.get(w);
-		if(positionen != null) {
-			positionen.add(position);
-		} else {
-			ArrayList<Position> list = new ArrayList<>();
-			list.add(position);
-			woerter.put(w, list);
+//		Collection<Position> positionen = woerter.get(w);
+//		if(positionen != null) {
+//			positionen.add(position);
+//		} else {
+//			ArrayList<Position> list = new ArrayList<>();
+//			list.add(position);
+//			woerter.put(w, list);
+//		}
+		
+		ArrayList<Position> positionen = woerter.get(w);
+		if (positionen == null) {
+			positionen = new ArrayList<>();
 		}
+		positionen.add(position);
+		woerter.put(w,positionen);
 	}
 }

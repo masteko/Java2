@@ -1,6 +1,6 @@
 package de.fhws.Aufgabe14;
 
-public class HumanDriver extends Driver {
+public class HumanDriver extends Driver{
 
 	@Override
 	public Decision decite(Danger danger) {

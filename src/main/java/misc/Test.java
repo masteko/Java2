@@ -33,14 +33,19 @@ public class Test implements TestInt{
 		}
 	}
 	
+	public static double berechneProzent(int a, int b) {
+		if (a <= 0 || b <= 0) return -1;
+		return a * (b / 100d);
+	}
+	
 	public static void main(String[] args) throws IOException {
-		Test t = new Test();
-		Map<String, String> t3 = new HashMap<>();
-		
-		t3.put("test", "hallo");
-		Test3 test = new Test("hello", "hello").new Test3();
-
-
+//		Test t = new Test();
+//		Map<String, String> t3 = new HashMap<>();
+//		
+//		t3.put("test", "hallo");
+//		Test3 test = new Test("hello", "hello").new Test3();
+//
+		System.out.println(berechneProzent(30, -5));
 		
 	}
 }

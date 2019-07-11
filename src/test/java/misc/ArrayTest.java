@@ -18,6 +18,11 @@ class ArrayTest {
 		list = new ArrayList<>();
 //		list = Collections.synchronizedList(list);
 	}
+	
+	@Test
+	void testProzent() {
+		assertEquals(-1, misc.Test.berechneProzent(200, -3), 0.00001);
+	}
 
 	@Test
 	void test() throws InterruptedException {

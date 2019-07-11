@@ -39,7 +39,7 @@ public class OutputStreamDoubler extends OutputStream {
 		
 		out2.write(b);
 
-		if(err != null) throw new IOException(err);		
+		if(err != null) throw err;		
 	}
 	
 	public void close() throws IOException {

@@ -22,22 +22,25 @@ public class Test2  extends Test{
 	}
 	
 	public static void main(String[] args) {
-		Test2 t = new Test2("name", "988");
-		String[] arr = {"asdf", "asdf"};
-		List<String> list = new ArrayList<>();
-		t.testMap.put("test", "asdf");
-		t.testMap.put("asdf", "asdf");
-		t.testMap.put("rass", "asdf");
-		t.testMap.put("tsssest", "asdf");
-		t.testMap.put("asd", "asdf");
-		t.testMap.put("ff", "asdf");
-		t.testMap.put("xx", "asdf");
-		t.testSet = t.testMap.keySet();
-		list.addAll(t.testSet);
-		System.out.println(Arrays.asList("asdf", "asdf"));
-		System.out.println(Arrays.asList(arr));
-		System.out.println(List.of(arr));
-		System.out.println(List.of("asdf", "asdfsss"));
+//		Test2 t = new Test2("name", "988");
+//		String[] arr = {"asdf", "asdf"};
+//		List<String> list = new ArrayList<>();
+//		t.testMap.put("test", "asdf");
+//		t.testMap.put("asdf", "asdf");
+//		t.testMap.put("rass", "asdf");
+//		t.testMap.put("tsssest", "asdf");
+//		t.testMap.put("asd", "asdf");
+//		t.testMap.put("ff", "asdf");
+//		t.testMap.put("xx", "asdf");
+//		t.testSet = t.testMap.keySet();
+//		list.addAll(t.testSet);
+//		System.out.println(Arrays.asList("asdf", "asdf"));
+//		System.out.println(Arrays.asList(arr));
+//		System.out.println(List.of(arr));
+//		System.out.println(List.of("asdf", "asdfsss"));
+		
+		Thread t1 = new Thread(() -> System.out.println("Hallo Thread"));
+		t1.start();
 	}
 
 }

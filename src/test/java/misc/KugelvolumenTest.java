@@ -15,6 +15,7 @@ class KugelvolumenTest {
 	void Kugeltest2() {
 		Exception e = assertThrows(RuntimeException.class, () -> Kugelvolumen.berechneKugelvolumen(0));
 		assertEquals("Ungueltiger Radius", e.getMessage());
+		Exception f = assertThrows(RuntimeException.class, () -> Kugelvolumen.berechneKugelvolumen(2));
 	}
 
 }

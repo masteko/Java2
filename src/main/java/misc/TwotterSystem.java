@@ -24,9 +24,7 @@ public class TwotterSystem {
 	}
 	
 	public List<Message> getAllMessages() {
-		List<Message> result = new ArrayList<>();
-		messages.forEach((u, m) -> result.addAll(m));
-		return result;
+		return messages.values().stream().flatMap(msgs -> msgs.stream()).collect(Collectors.toList());
 	}
 	
 	public List<Message> getAllMessagesFromUser(User u) {

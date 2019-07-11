@@ -19,9 +19,11 @@ public class UserManager {
 			FileOutputStream fos = new FileOutputStream(DATABASE);
 			ObjectOutputStream oos = new ObjectOutputStream(fos)) 
 		{
-			for (User u : users) {
-				oos.writeObject(u);
-			}
+//			for (User u : users) {
+//				oos.writeObject(u);
+//			}
+			
+			oos.writeObject(users);
 			
 		}catch (IOException e){
 			throw new RuntimeException(e);
@@ -36,17 +38,16 @@ public class UserManager {
 			FileInputStream fis = new FileInputStream(DATABASE);
 			ObjectInputStream ois = new ObjectInputStream(fis);) 
 		{
-			try {
-				while(true) {
-					tmp = (User) ois.readObject();
-					result.add(tmp);
-				}				
-			} catch (EOFException e) {
-				// no more users
-			}
-		} catch(IOException e) {
-			throw new RuntimeException(e);
-		} catch(ClassNotFoundException e) {
+//			try {
+//				while(true) {
+//					tmp = (User) ois.readObject();
+//					result.add(tmp);
+//				}				
+//			} catch (EOFException e) {
+//				// no more users
+//			}
+			Object o = ois.readObject();
+		} catch(IOException | ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 		
