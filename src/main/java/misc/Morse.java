@@ -35,8 +35,8 @@ public class Morse {
 	public static HashMap<String, String> getMorseCodeMap(String[][] table) {
 		HashMap<String, String> result = new HashMap<>();
 		
-		for (int i = 0; i < table.length; i++) {
-			result.put(table[i][0].toUpperCase(), table[i][1]);
+		for (String[] zeile : table) {
+			result.put(zeile[0], zeile[1]);
 		}
 		
 		return result;

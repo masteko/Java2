@@ -10,9 +10,9 @@ public class Message {
 	private String message;
 	private String ceationDate;
 	
-	public Message(String message) {
+	public Message(String message, String date) {
 		this.message = message;
-		this.ceationDate = new Timestamp(System.currentTimeMillis()).toString();
+		this.ceationDate = date;
 	}
 	
 	public String getCreationDate() {

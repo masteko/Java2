@@ -32,8 +32,9 @@ public class TwotterSystem {
 	}
 	
 	public List<Message> getAllMessagesFromDate(String date) {
-		List<Message> result = new ArrayList<>();
-		messages.forEach((u, m) -> result.addAll(m));
-		return result.stream().filter(m -> m.getCreationDate() == date).collect(Collectors.toList());
+		return messages.values().stream()
+				.flatMap(msgs -> msgs.stream())
+				.filter(m -> m.getCreationDate().equals(date))
+				.collect(Collectors.toList());
 	}
 }

@@ -101,7 +101,8 @@ public class Mitarbeiter implements Serializable {
 	}
 	
 	public static Mitarbeiter[] sortiere(Collection<Mitarbeiter> team) {
-		return team.stream().sorted(new VergleichePersonalNummer()).toArray(Mitarbeiter[]::new);
+//		return team.stream().sorted(new VergleichePersonalNummer()).toArray(Mitarbeiter[]::new);
+		return team.stream().sorted((a,b) -> a.getNummer() - b.getNummer()).toArray(Mitarbeiter[]::new);
 	}
 	
 	public static void main(String[] args) {
@@ -137,6 +138,7 @@ public class Mitarbeiter implements Serializable {
 		}
 		
 		mitarbeiter.forEach(System.out::println);
+		System.out.println("---------");
 		Mitarbeiter[] m = Mitarbeiter.sortiere(mitarbeiter);
 		for (Mitarbeiter ma : m) {
 			System.out.println(ma);
