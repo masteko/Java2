@@ -1,10 +1,12 @@
 package misc;
 
+import java.io.IOException;
 import java.io.ObjectInputStream.GetField;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.zip.GZIPOutputStream;
 
 import org.glassfish.jersey.internal.guava.Maps;
 
@@ -24,12 +26,14 @@ public class MusikStueckSammlung {
 	public MusikStueck[] getAlleMusikStueckeNachTitel() {
 		MusikStueck[] result = sammlung.values().toArray(MusikStueck[]::new);
 //		return sammlung.values().stream().sorted(new VergleicheMusikStueckTitel()).toArray(MusikStueck[]::new);
-		Arrays.sort(result, Comparator.comparing(MusikStueck::getInterpret).thenComparing(MusikStueck::getTitel).thenComparingInt(MusikStueck::getLaenge));
-		return result;
+//		Arrays.sort(result, Comparator.comparing(MusikStueck::getInterpret).thenComparing(MusikStueck::getTitel).thenComparingInt(MusikStueck::getLaenge));
+//		return result;
+		return sammlung.values().stream().sorted(Comparator.comparing(MusikStueck::getInterpret)).toArray(MusikStueck[]::new);
 	}
 	
 	public MusikStueck[] getAlleMusikStueckeNachLaenge() {
-		return sammlung.values().stream().sorted(new VergleicheMusikStuckLaenge()).toArray(MusikStueck[]::new);
+		return sammlung.values().stream().sorted((a, b) -> a.laenge - b.laenge).toArray(MusikStueck[]::new);
+//		return sammlung.values().stream().sorted(new VergleicheMusikStuckLaenge()).toArray(MusikStueck[]::new);
 	}
 	
 	public static void main(String[] args) {
@@ -42,6 +46,13 @@ public class MusikStueckSammlung {
 			mss.musikStueckEinfuegen(new MusikStueck("Mischigan", "XYZ", 331));			
 		} catch (Exception e) {
 			// TODO: handle exception
+		}
+		try {
+			GZIPOutputStream output = new GZIPOutputStream(System.out);
+			output.write("hallo welt".getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		MusikStueck[] nachTitel = mss.getAlleMusikStueckeNachTitel();

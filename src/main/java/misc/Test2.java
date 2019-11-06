@@ -36,7 +36,7 @@ public class Test2  extends Test{
 	
 	public static void main(String[] args) {
 //		Test2 t = new Test2("name", "988");
-//		String[] arr = {"asdf", "asdf"};
+		String[] arr = {"asdf", "asdf"};
 //		List<String> list = new ArrayList<>();
 //		t.testMap.put("test", "asdf");
 //		t.testMap.put("asdf", "asdf");
@@ -48,8 +48,8 @@ public class Test2  extends Test{
 //		t.testSet = t.testMap.keySet();
 //		list.addAll(t.testSet);
 //		System.out.println(Arrays.asList("asdf", "asdf"));
-//		System.out.println(Arrays.asList(arr));
-//		System.out.println(List.of(arr));
+		System.out.println(Arrays.asList(arr));
+		System.out.println(List.of(arr));
 //		System.out.println(List.of("asdf", "asdfsss"));
 		
 //		Thread t1 = new Thread(() -> System.out.println("Hallo Thread"));
@@ -57,15 +57,18 @@ public class Test2  extends Test{
 		
 		File f = new File("asdf");
 		Optional<String> opt = Optional.ofNullable(null);
+		HashMap<String, String> test = new HashMap<>();
+		System.out.println(test.get("hallo"));
 		
-		System.out.println(opt.isPresent());
-		
+//		System.out.println(opt.isPresent());
 		try {
 			InputStream is = new FileInputStream(f);
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();	
-			
+					
 			BufferedInputStream bis = new BufferedInputStream(is);
 			BufferedOutputStream bas = new BufferedOutputStream(System.out);
+			
+			ArrayList<String> t = new ArrayList<>();
 			
 			OutputStreamWriter osw = new OutputStreamWriter(System.out);
 			BufferedWriter bw = new BufferedWriter(osw);

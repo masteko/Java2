@@ -6,4 +6,8 @@ public class Professor extends Person{
 	void gibTaetigkeitAus() {
 		System.out.println("Der Professor lehrt.");	
 	}
+	
+	void lehre() {
+		System.out.println("Ich lehre");
+	}
 }

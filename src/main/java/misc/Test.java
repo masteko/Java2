@@ -2,13 +2,16 @@ package misc;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Test implements TestInt{
 	private String name;
@@ -45,6 +48,16 @@ public class Test implements TestInt{
 //		t3.put("test", "hallo");
 //		Test3 test = new Test("hello", "hello").new Test3();
 //
+		
+		List<String> t = new ArrayList<>();
+
+		HashMap<String, String> test = new HashMap<>();
+		test.put("hallo", "sdfg");
+		test.put("hallo", "sss");
+		test.put("asad", "sssssss");
+		System.out.println(test.keySet().contains("hjn"));
+		
+		System.out.println(test);
 		System.out.println(berechneProzent(30, -5));
 		
 	}
